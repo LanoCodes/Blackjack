@@ -1,17 +1,10 @@
 import random as r
-import os
+from replit import clear
 from art import logo
 
-def cls():
-    os.system('cls' if os.name == 'nt' else 'clear')
-
 def blackjack(choice):
-    # This is to clear the previous text from the console
-    cls()
+    clear()
     print(logo)
-
-    # if choice == 'y':
-    #     print(logo)
 
     # The is going to give the both the user and computer 2 random cards
     user_hand = []
@@ -23,13 +16,6 @@ def blackjack(choice):
     # These are to record the user and computer's scores
     user_score = 0
     computer_score = 0
-
-    # Below this, I want to enclose the other while loop inside of a while loop that dictates whether the user wants to play again. Possible movement of the cls() function below....
-
-    replay_game = 'y'
-    # while replay_game == 'y':
-    #
-    #     replay_game = input('Hey 👀, you wanna play Blackjack aga in?\n\tType "y" to continue')
 
     while choice == 'y':
         # Add up scores
@@ -70,7 +56,7 @@ def blackjack(choice):
     if computer_score > 21:
         return f"\tYour final hand: {user_hand}, final score: [{user_score}]\n\tComputer's final hand: {computer_hand}, final score: [{computer_score}]\nYou win!! 🤩"
     elif user_score < computer_score :
-        return f"\tYour final hand: {user_hand}, final score: [{user_score}]\n\tComputer's final hand: {computer_hand}, final score: [{computer_score}]\nYou lose. 😛"
+        return f"\tYour final hand: {user_hand}, final score: [{user_score}]\n\tComputer's final hand: {computer_hand}, final score: [{computer_score}]\nWent over. You lose. 😛"
     elif user_score > computer_score:
         return f"\tYour final hand: {user_hand}, final score: [{user_score}]\n\tComputer's final hand: {computer_hand}, final score: [{computer_score}]\nYou win! 🤩🤩🤩"
     elif computer_score == user_score:
@@ -88,4 +74,5 @@ while blackjack_choice == 'y':
         print('Maybe some other time...')
 
 if blackjack_choice != 'y':
-    print('\tMaybe some other time...')
+    clear()
+    print('Maybe some other time...')
